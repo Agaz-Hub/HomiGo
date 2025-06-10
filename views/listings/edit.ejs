@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+    <div class="row">
+        <div class="col-md-8 col-sm-10 offset-sm-1 offset-md-2">
+            <br>
+    <h3>Edit Listing</h3>
+    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-lable">Title</label>
+            <input type="text" name="listing[title]" id="title"  value="<%= listing.title %>" class="form-control">
+        </div>
+        <!-- <div class="mb-3">
+            <label for="filename" class="form-lable">Image Filename</label>
+            <input type="text" name="listing[image][url]" id="filename" value="<%= listing.image.filename %>" class="form-control">
+        </div> -->
+        <div class="mb-3">
+            Original Listing Image <br>
+            <img src="<%= originalImageUrl %>" width="250px" alt="No image">
+        </div>
+        <div class="mb-3">
+            <label for="imageFile" class="form-lable">Upload New Image</label>
+            <input type="file" name="listing[imageFile]" id="imageFile" class="form-control">
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-lable">Price</label>
+                <input name="listing[price]" id="price" value="<%= listing.price %>" class="form-control" required>
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-lable">Country</label>
+                <input type="text" name="listing[country]" id="country" value="<%= listing.location %>" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-lable">Location</label>
+            <input type="text" name="listing[location]" id="location" value="<%= listing.country %>" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-add">Edit</button>
+    </form>
+
+    </div>
+    </div>
+</body>
