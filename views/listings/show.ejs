@@ -4,15 +4,14 @@
         let listing = <%- JSON.stringify(listing) %>;
     </script>
 <body>
-    <br>
-
-    <div class="row">
-        <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1">
-            <h3>&nbsp;<b><%= listing.title %></b></h3>
-            <div class="card show-card">
-                <img src=<%= listing.image.url %> class="card-img-top show-img" alt="Listing Image Not Found">
-                <div class="card-body">
-                  <p class="card-text">
+    <div class="show-box" >
+        <div class="show-img-box">
+            <img src=<%= listing.image.url %> class="show-img" alt="Listing Image Not Found">
+        </div>
+        <div class="show-content">
+            <h3><b><%= listing.title %></b></h3>
+            <div class="show-text-box">
+                  <p class="show-text">
                     Owned by <%= listing.owner.username %> <br>
                     <br>
                     &#8377 <%= listing.price.toLocaleString("en-IN") %>/night <br>
@@ -28,18 +27,13 @@
                         </div>
                     <% } %>
                   </p>
-                </div>
             </div>
-        </div> 
-        
-
-        <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1">
             <hr>
             <% if(currUser){ %>
                 <h4>Leave a Review</h4>
                 <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate class="needs-validation">
 
-                    <div class="mb-3">
+                    <div>
                         <label for="rating" class="form-label">Rating</label>
                         <fieldset class="starability-slot">
                             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
@@ -57,7 +51,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="rating" class="form-label">Comment</label>
-                        <textarea name="review[comment]" id="comment" cols="10" rows="5" class="form-control" required></textarea>
+                        <textarea name="review[comment]" id="comment" cols="10" rows="3" class="form-control" required></textarea>
                         <div class="invalid-feedback">
                             Please submit some comments for review
                         </div>
@@ -65,14 +59,18 @@
 
                     <button class="btn btn-outline-dark">submit</button>
                 </form>
-                <hr>
             <% } %>
+        </div>
+        </div>
 
+        <div>
+        <div class="col-10 offset-1 map-box">
+            <hr>
             <% if(listing.reviews.length > 0){ %>
             <h4>Reviews</h4>
             <div class="row">
                 <% for(review of listing.reviews) {%>
-                    <div class="card col-5 mb-3 ms-3">
+                    <div class="card col-lg-5 mb-3 ms-2">
                         <h5 class="card-title">@<%= review.author.username %></h5>
                         <p class="starability-result card-text" data-rating="<%=review.rating %>">
                             Rated: 3 stars
@@ -85,9 +83,7 @@
                 <% } %>
             </div>
             <% } %>
-        </div>
-
-        <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1">
+            <hr>
             <h3>Where you'll be</h3>
             <div id="map"></div>
         </div>

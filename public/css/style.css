@@ -1,15 +1,28 @@
+/*------ boilerplate ------*/
 .main-box{
-    margin-left: 2rem;
-    margin-right: 2rem;
+    padding: 0 4vw;
 }
 
 body{
     font-family: "Plus Jakarta Sans", sans-serif !important;
 }
+
+/* ------ Navbar ------ */
 .navbar {
     height: 5rem;
     background-color: white !important;
+    padding: 0 4vw;
 }
+
+@media (max-width: 600px) {
+    .navbar{
+        padding:0 10px;
+    }
+    .main-box{              /*boilerplate*/
+        padding:0 10px;
+    }
+}
+
 .container-fluid{
     background-color: white;
 }
@@ -24,9 +37,10 @@ body{
 }
 
 
-/* footer */
+/*------ footer ------*/
 .footer{
     margin-top: 2rem;
+    padding: 0;
 }
 
 .f-info{
@@ -53,28 +67,41 @@ body{
     text-decoration: underline;
 }
 
+
+/* ------ All Listing ( Index.ejs )  -------*/
+.listing-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .heading{
-    margin-top: 1rem;
+    margin: 1rem auto 1rem 1rem;
 }
 
 .listing-box{
     display: flex;
     flex-wrap: wrap;
-    width: fit-content;
-    justify-content: space-between;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.listing-link{
+    text-decoration: none;
+    flex-grow: 1;
+    flex-basis: 16rem;
 }
 
 .listing-card{
     border: none !important;
-    margin: 1rem 0.5rem 1rem 0.5rem;
 }
 
-.card-img-top{
+.listing-img{
     border-radius: 0.5rem !important;
     object-fit: cover !important;
-    height: 16rem;
-    width: 16rem;
-
+    width: 100%;
+    aspect-ratio: 1/1;
 }
 
 .card-body{
@@ -83,10 +110,6 @@ body{
 
 .card-text p{
     font-weight: 400 !important;
-}
-
-.listing-link{
-    text-decoration: none;
 }
 
 .card-img-overlay{
@@ -98,18 +121,38 @@ body{
     background-color: white;
 }
 
+
+
+/* ------ Add New Listing ------ */
 .btn-add{
     background-color: #fe424d;
     color: white;
 }
 
-.show-card{
-    border: none;
+
+/* ------- Show Page ------ */
+.show-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 1.5rem;
+}
+
+.show-img-box{
+    flex-basis: 50%;
+    aspect-ratio: 1/1;
 }
 
 .show-img{
+    height: 100%;
     width: 100%;
-    height: fit-content;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.show-content{
+    flex-basis: 50%;
+    padding-left: 2rem;
 }
 
 .btn-options{
@@ -120,8 +163,19 @@ body{
     margin-right: 1rem !important;
 }
 
+@media (max-width: 720px){
+    .show-box div{
+        flex-basis: 100%;
+        padding: 0.2rem 1rem;
+    }
+}
+
 /* Map */
+.map-box{
+    margin-top: 1rem;
+}
 #map{
     height: 350px;
-    width: 90vh;
+    width: 100%;
+    border-radius: 1rem;
 }
