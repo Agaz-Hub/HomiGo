@@ -9,7 +9,7 @@ body{
 
 /* ------ Navbar ------ */
 .navbar {
-    height: 5rem;
+    height: 3.5rem;
     background-color: white !important;
     padding: 0 4vw;
 }
@@ -27,8 +27,14 @@ body{
     background-color: white;
 }
 
-.fa-compass{
+.navbar-brand{
+    justify-items: center;
+    font-weight: 600;
+    font-size: 1.8rem;
     color: #fe424d;
+}
+
+.fa-house-laptop{
     font-size: 2rem;
 }
 
@@ -36,6 +42,9 @@ body{
     color: #222 !important;
 }
 
+#Homigo-your-home{
+    color: #fe424d !important;
+}
 
 /*------ footer ------*/
 .footer{
@@ -76,7 +85,13 @@ body{
 }
 
 .heading{
-    margin: 1rem auto 1rem 1rem;
+    margin: 1rem auto 1rem 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#index-heading{
+    margin-left: 1rem;
 }
 
 .listing-box{
@@ -135,7 +150,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding-top: 1.5rem;
+    padding-top: 0.3rem;
 }
 
 .show-img-box{
@@ -147,12 +162,13 @@ body{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-radius: 0.1rem;
 }
 
 .show-content{
     flex-basis: 50%;
     padding-left: 2rem;
+    padding-top: 1rem;
 }
 
 .btn-options{
@@ -163,19 +179,45 @@ body{
     margin-right: 1rem !important;
 }
 
-@media (max-width: 720px){
-    .show-box div{
-        flex-basis: 100%;
-        padding: 0.2rem 1rem;
-    }
+/* Map */
+.review-map-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Map */
+.reviews-box{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.review-box{
+    padding: 1rem;
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
 .map-box{
-    margin-top: 1rem;
+    width: 60%;
 }
 #map{
-    height: 350px;
     width: 100%;
+    aspect-ratio: 2/1;
     border-radius: 1rem;
+}
+
+@media (max-width: 720px){
+    .show-box > div{
+        flex-basis: 100%;
+        padding: 0.5rem 0.5rem;
+    }
+    .map-box{
+        width: 100%;
+    }
+    .review-box{
+        width: 100%;
+    }
 }

@@ -64,28 +64,32 @@
         </div>
 
         <div>
-        <div class="col-10 offset-1 map-box">
+        <div class="review-map-box">
             <hr>
             <% if(listing.reviews.length > 0){ %>
-            <h4>Reviews</h4>
-            <div class="row">
+            <h4 class="heading">Reviews ></h4>
+            <div class="reviews-box">
                 <% for(review of listing.reviews) {%>
-                    <div class="card col-lg-5 mb-3 ms-2">
+                    <div class="review-box">
                         <h5 class="card-title">@<%= review.author.username %></h5>
                         <p class="starability-result card-text" data-rating="<%=review.rating %>">
                             Rated: 3 stars
                         </p>
                         <p class="card-text"><%=review.comment %></p>
-                        <form class="mb-3" method="post" action="/listings/<%= listing._id %>/reviews/<%=review._id%>?_method=DELETE">
-                            <button class="btn btn-sm btn-dark">Delete</button>
-                        </form>
+                        
+                            <form method="post" action="/listings/<%= listing._id %>/reviews/<%=review._id%>?_method=DELETE">
+                                <button class="btn btn-sm btn-dark <% if(currUser && !currUser._id.equals(review.author._id)){ %> disabled <% } %>">Delete</button>
+                            </form>
+                        
                     </div>
                 <% } %>
             </div>
             <% } %>
             <hr>
-            <h3>Where you'll be</h3>
-            <div id="map"></div>
+            <div class="map-box">
+                <h3 class="heading">Where you'll be ></h3>
+                <div id="map"></div>
+            </div>
         </div>
         
     </div>
